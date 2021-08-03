@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import React, { FC, useState } from "react";
-
-import styles from "../../styles/components/Appbar.module.scss";
+import React, { FC, useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import _ from "lodash";
 
 export interface AppbarProps
   extends Omit<React.HTMLAttributes<HTMLElement>, "className"> {
@@ -9,18 +9,62 @@ export interface AppbarProps
 }
 
 const Appbar: FC<AppbarProps> = ({ className, ...props }) => {
-  const [isOpen, setOpen] = useState<boolean|null|undefined>(false);
-  
+  const refHeader = useRef<any>(null);
+  const refListItems = useRef<any>(null);
+  const [isOpen, setOpen] = useState<boolean | null | undefined>(false);
+
+  const onOpen = () => {
+    setOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const heightOfHeader = refHeader.current.getBoundingClientRect().height;
+    const heightOfListItems =
+      refListItems.current.getBoundingClientRect().height;
+
+    document.body.style.setProperty(
+      "--app-header-height",
+      `${heightOfHeader}px`
+    );
+    document.body.style.setProperty(
+      "--app-header-items-height",
+      `${heightOfListItems}px`
+    );
+  }, []);
+
   return (
     <>
-      <header {...props} className={classNames(styles.appbar, className)}>
-        <div className={styles.appbar__bars}>
+      <header
+        {...props}
+        ref={refHeader}
+        className={classNames("appbar", className, isOpen && "appbar__open")}
+      >
+        <div className={"appbar__bars"} onClick={onOpen}>
           <span></span>
           <span></span>
         </div>
       </header>
 
-      <section className={classNames(styles.appbar__content)}></section>
+      <section className={classNames("appbar__content")}>
+        <div className="appbar__items" ref={refListItems}>
+          <Link href="/about">
+            <h2 className="appbar__item">Home</h2>
+          </Link>
+
+          <Link href="/about">
+            <h2 className="appbar__item">About me</h2>
+          </Link>
+
+          <Link href="/about">
+            <h2 className="appbar__item">Work</h2>
+          </Link>
+
+          <Link href="/about">
+            <h2 className="appbar__item">Projects</h2>
+          </Link>
+        </div>
+        <div className="appbar__picture"></div>
+      </section>
     </>
   );
 };
