@@ -1,0 +1,26 @@
+@keyframes debounceUpAndDown {
+  from {
+    transform: translateY(0);
+  }
+
+  33% {
+    transform: translateY(15px);
+  }
+
+  66% {
+    transform: translateY(-15px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,46 @@
+.home-screen {
+  .sp-space {
+    max-width: 100%;
+    height: calc(100vh - var(--app-header-height));
+    position: relative;
+
+    transition: all 300ms ease;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../../public/assets/statics/sphere.gif") no-repeat center;
+      opacity: 0.3;
+      mix-blend-mode: difference;
+      z-index: -1;
+
+      transition: all 150ms linear;
+    }
+
+    &__title {
+      font-size: 7.5rem;
+      text-transform: uppercase;
+      font-family: "Cormorant Upright";
+      font-weight: bold;
+    }
+
+    .sp-space__sphere {
+      fill: rgba($color: $dark, $alpha: 1);
+      font-family: "Cormorant Upright";
+      font-weight: bold;
+
+      animation: spinAround 15s linear infinite;
+    }
+  }
+}

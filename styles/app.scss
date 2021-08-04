@@ -1,7 +1,14 @@
 @import "./variables.scss";
 @import "./globalStyles.scss";
 
+@import "./base/keyframes.scss";
+
 @import "./components/Noise.scss";
 @import "./components/Loading.scss";
 @import "./components/Body.scss";
 @import "./components/Appbar.scss";
+@import "./components/Text.scss";
+
+@import "./pages/Home.scss";
+
+@import "./vendors/locomotive-scroll";

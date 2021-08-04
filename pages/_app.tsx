@@ -20,13 +20,24 @@ function MyApp({ Component, pageProps }: Props) {
     isDarkTheme && document.body.classList.add("dark");
   }, []);
 
+  useEffect(() => {
+    let scroll: any;
+    import("locomotive-scroll").then((locomotive) => {
+      scroll = new locomotive.default({
+        el: document.querySelector("#app") as Element,
+        smooth: true,
+        smoothMobile: false,
+        resetNativeScroll: true,
+      });
+    });
+
+    return () => scroll.destroy();
+  }, []);
+
   return (
     <Fragment>
-      {/* <Head>
-        <title>Duong Duc Trong - Portfolio Frontend Developer</title>
-      </Head> */}
       <Noise />
-      <MyLayout>
+      <MyLayout id="app">
         <Component {...pageProps} />
       </MyLayout>
 
