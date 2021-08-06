@@ -1,36 +1,43 @@
+import classNames from "classnames";
+import _ from "lodash";
 import { FC, useEffect } from "react";
 import AppLayout from "../components/AppLayout/AppLayout";
+import Text from "../components/Text/Text";
 import { PageLayoutI } from "../core/types/PageLayout";
-import classNames from "classnames";
 export interface HomeProps {
   className?: any;
 }
 
 const Home: FC<HomeProps> = ({ className, ...props }) => {
+  useEffect(() => {
+    const movingObject = _.throttle((event: MouseEvent) => {
+      const object = {
+        x: event.x / 20,
+        y: event.y / 20,
+      };
+
+      document.body.style.setProperty("--app-mouse-x", `${object.x}px`);
+      document.body.style.setProperty("--app-mouse-y", `${object.y}px`);
+    }, 200);
+
+    window.addEventListener("mousemove", movingObject);
+    return () => {
+      window.removeEventListener("mousemove", movingObject);
+    };
+  }, []);
+
   return (
     <div {...props} className={classNames("home-screen", className)}>
-      <section className="sp-space">
-        {/* <svg
-          className="sp-space__sphere"
-          viewBox="0 0 100 100"
-          width="550"
-          height="550"
-        >
-          <defs>
-            <path
-              id="circle"
-              d="M 50, 50
-            m -37, 0
-            a 37,37 0 1,1 74,0
-            a 37,37 0 1,1 -74,0"
-            ></path>
-          </defs>
-          <text fontSize="14">
-            <textPath xlinkHref="#circle">Contact: duongductrong06@gmail.com</textPath>
-          </text>
-        </svg> */}
-        <h1 className="sp-space__title">Simple Style</h1>
+      <section className="sp-space" data-scroll data-scroll-id="appInsignt">
+        <Text tag="h1" variant="big-text" className="sp-space__title">
+          InSignt
+        </Text>
+        <Text tag="h6" variant="h6" className="sp-space__sub-title">
+          Web Development & Front-End - @2021{" "}
+        </Text>
       </section>
+
+      <section style={{ height: "100vh" }}></section>
     </div>
   );
 };

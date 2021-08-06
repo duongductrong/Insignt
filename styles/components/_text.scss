@@ -1,0 +1,8 @@
+@import "../variables.scss";
+
+@each $text, $textVars in $texts {
+  .text-#{$text} {
+    font-size: map-get($map: $textVars, $key: "size");
+    font-weight: map-get($map: $textVars, $key: "weight");
+  }
+}

@@ -1,0 +1,49 @@
+@import "../variables.scss";
+
+.mouse {
+  &::before {
+    content: "";
+    position: absolute;
+    top: var(--app-mouse-moving-y);
+    left: var(--app-mouse-moving-x);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 998;
+    pointer-events: none;
+
+    border: 1px solid $white;
+    mix-blend-mode: difference;
+
+    transition: all 200ms linear;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--app-mouse-moving-y) + 25px);
+    left: calc(var(--app-mouse-moving-x) + 25px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $white;
+    z-index: 998;
+    
+    pointer-events: none;
+
+    mix-blend-mode: difference;
+    transition: all 50ms linear;
+  }
+}
+
+// body.dark {
+//   .mouse {
+//     &::before {
+//       border-color: $white;
+//     }
+
+//     &::after {
+//       background-color: $white;
+//     }
+//   }
+// }

@@ -48,19 +48,19 @@ const Appbar: FC<AppbarProps> = ({ className, ...props }) => {
       <section className={classNames("appbar__content")}>
         <div className="appbar__items" ref={refListItems}>
           <Link href="/about">
-            <h2 className="appbar__item">Home</h2>
+            <h2 className="appbar__item color-white">Home</h2>
           </Link>
 
           <Link href="/about">
-            <h2 className="appbar__item">About me</h2>
+            <h2 className="appbar__item color-white">About me</h2>
           </Link>
 
           <Link href="/about">
-            <h2 className="appbar__item">Work</h2>
+            <h2 className="appbar__item color-white">Work</h2>
           </Link>
 
           <Link href="/about">
-            <h2 className="appbar__item">Projects</h2>
+            <h2 className="appbar__item color-white">Projects</h2>
           </Link>
         </div>
         <div className="appbar__picture"></div>

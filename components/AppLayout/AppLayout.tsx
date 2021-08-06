@@ -5,12 +5,12 @@ export interface Props
   extends Omit<React.HTMLAttributes<HTMLElement>, "className"> {}
 
 const AppLayout: FC<Props> = ({ children, ...props }) => {
-  return <div {...props} className="app-layout">
-    <Appbar />
-    <main>
-      {children}
-    </main>
-  </div>;
+  return (
+    <div {...props} className="app-layout">
+      <Appbar />
+      <main id="app">{children}</main>
+    </div>
+  );
 };
 
 export default AppLayout;

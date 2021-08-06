@@ -7,6 +7,8 @@
   border-style: solid;
   border-color: inherit;
   box-sizing: border-box;
+
+  cursor: none;
 }
 
 html,
@@ -152,4 +154,10 @@ body {
   min-height: 100vh;
   background: $light;
   color: $dark;
+}
+
+:root {
+  --app-scale: 1;
+  --app-mouse-x: 0;
+  --app-mouse-y: 0;
 }

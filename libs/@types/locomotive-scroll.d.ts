@@ -155,7 +155,8 @@ declare module "locomotive-scroll" {
     firefoxMultiplier?: number;
     touchMultiplier?: number;
     scrollFromAnywhere?: boolean;
-    gestureDirection?: "vertical" | "horizontal" | "both"
+    gestureDirection?: "vertical" | "horizontal" | "both",
+    lerp?: number;
   }
 
   export default class LocomotiveScroll implements LocomotiveScrollOptions {

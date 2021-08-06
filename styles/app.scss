@@ -3,12 +3,14 @@
 
 @import "./base/keyframes.scss";
 
-@import "./components/Noise.scss";
-@import "./components/Loading.scss";
-@import "./components/Body.scss";
-@import "./components/Appbar.scss";
-@import "./components/Text.scss";
+@import "./components/mouse";
+@import "./components/color";
+@import "./components/noise";
+@import "./components/loading";
+@import "./components/body";
+@import "./components/appbar";
+@import "./components/text";
 
-@import "./pages/Home.scss";
+@import "./pages/home";
 
 @import "./vendors/locomotive-scroll";

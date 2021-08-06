@@ -1,0 +1,25 @@
+@import "../variables.scss";
+
+@each $colorName, $color in $colors {
+  .color-#{$colorName} {
+    color: map-get($map: $color, $key: "light");
+  }
+
+  .bg-#{$colorName} {
+    background-color: map-get($map: $color, $key: "light");
+  }
+}
+
+body.dark {
+  @each $colorName, $color in $colors {
+    .color-#{$colorName} {
+      color: map-get($map: $color, $key: "dark");
+    }
+  }
+
+  @each $colorName, $color in $colors {
+    .bg-#{$colorName} {
+      background-color: map-get($map: $color, $key: "dark");
+    }
+  }
+}
