@@ -5,10 +5,22 @@ export interface Props
   extends Omit<React.HTMLAttributes<HTMLElement>, "className"> {}
 
 const AppLayout: FC<Props> = ({ children, ...props }) => {
+  // const dispatch = useDispatch();
+  // const router = useRouter();
+
+  // // listeners change route
+  // useEffect(() => {
+  //   dispatch(loadingOn);
+
+  //   setTimeout(() => {
+  //     dispatch(loadingOff);
+  //   }, 300);
+  // }, [router.asPath]);
+
   return (
     <div {...props} className="app-layout">
       <Appbar />
-      <main id="app">{children}</main>
+      <main>{children}</main>
     </div>
   );
 };

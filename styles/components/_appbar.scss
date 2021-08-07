@@ -8,6 +8,7 @@
 
   &__bars {
     // cursor: pointer;
+    z-index: 998;
     span {
       display: block;
       width: 30px;

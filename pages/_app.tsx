@@ -1,10 +1,13 @@
 import _ from "lodash";
 import type { AppProps } from "next/app";
-import { Head } from "next/document";
+import { useRouter } from "next/dist/client/router";
 import { Fragment, useEffect, useState } from "react";
+import { Provider } from "react-redux";
 import AppLayout from "../components/AppLayout/AppLayout";
 import Loading from "../components/Loading/Loading";
 import Noise from "../components/Noise/Noise";
+import store from "../core/store";
+import { loadingOff, loadingOn } from "../core/store/reducers/loadingReducer";
 import { PageLayoutI } from "../core/types/PageLayout";
 import "../styles/app.scss";
 
@@ -13,6 +16,7 @@ type Props = AppProps & {
 };
 
 function MyApp({ Component, pageProps }: Props) {
+  const router = useRouter();
   const [isDarkTheme, setDarkTheme] = useState<any>(false);
   const MyLayout = Component.Layout || AppLayout;
 
@@ -22,45 +26,20 @@ function MyApp({ Component, pageProps }: Props) {
   }, []);
 
   useEffect(() => {
-    let scroll: any;
-    import("locomotive-scroll").then((locomotive) => {
-      scroll = new locomotive.default({
-        el: document.querySelector("#app") as Element,
-        smooth: true,
-        smoothMobile: false,
-        resetNativeScroll: true,
-        lerp: 0.05,
-      });
-
-      scroll.on(
-        "scroll",
-        _.throttle(({ ...props }) => {
-          let ratio = Math.ceil(props.scroll.y / 50);
-
-          if (ratio > 3) {
-            return;
-          }
-
-          document.body.style.setProperty(
-            "--app-scale",
-            `${ratio > 0 ? ratio : 1}`
-          );
-        }, 200)
-      );
-    });
-
-    return () => scroll.destroy();
-  }, []);
-
-  useEffect(() => {
     const movingObject = _.throttle((event: MouseEvent) => {
       const object = {
         x: event.x,
         y: event.y,
       };
 
-      document.body.style.setProperty("--app-mouse-moving-x", `${object.x - (60/2)}px`);
-      document.body.style.setProperty("--app-mouse-moving-y", `${object.y - (60/2)}px`);
+      document.body.style.setProperty(
+        "--app-mouse-moving-x",
+        `${object.x - 60 / 2}px`
+      );
+      document.body.style.setProperty(
+        "--app-mouse-moving-y",
+        `${object.y - 60 / 2}px`
+      );
     }, 50);
 
     window.addEventListener("mousemove", movingObject);
@@ -69,14 +48,25 @@ function MyApp({ Component, pageProps }: Props) {
     };
   }, []);
 
+  // listeners change route
+  useEffect(() => {
+    store.dispatch(loadingOn());
+
+    setTimeout(() => {
+      store.dispatch(loadingOff());
+    }, 1000);
+  }, [router.asPath]);
+
   return (
     <Fragment>
       <Noise />
       <div className="mouse"></div>
-      <MyLayout>
-        <Component {...pageProps} />
-      </MyLayout>
-      <Loading />
+      <Provider store={store}>
+        <MyLayout>
+          <Component {...pageProps} />
+        </MyLayout>
+        <Loading />
+      </Provider>
     </Fragment>
   );
 }

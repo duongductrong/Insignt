@@ -4,5 +4,37 @@
   .text-#{$text} {
     font-size: map-get($map: $textVars, $key: "size");
     font-weight: map-get($map: $textVars, $key: "weight");
+
+    &.cormorant-upright {
+      font-family: "Cormorant Upright";
+    }
+
+    &.inter {
+      font-family: "Inter";
+    }
+
+    &.text-capitalize {
+      text-transform: capitalize;
+    }
+
+    &.text-uppercase {
+      text-transform: uppercase;
+    }
+
+    &.text-lowercase {
+      text-transform: lowercase;
+    }
+
+    &.weight-normal {
+      font-weight: normal;
+    }
+
+    &.weight-bold {
+      font-weight: bold;
+    }
+
+    &.weight-light {
+      font-weight: lighter;
+    }
   }
 }

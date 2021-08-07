@@ -1,7 +1,6 @@
 import classNames from "classnames";
-import React, { FC, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import _ from "lodash";
+import React, { FC, useEffect, useRef, useState } from "react";
 
 export interface AppbarProps
   extends Omit<React.HTMLAttributes<HTMLElement>, "className"> {
@@ -47,20 +46,20 @@ const Appbar: FC<AppbarProps> = ({ className, ...props }) => {
 
       <section className={classNames("appbar__content")}>
         <div className="appbar__items" ref={refListItems}>
-          <Link href="/about">
-            <h2 className="appbar__item color-white">Home</h2>
+          <Link href="/">
+            <h2 onClick={onOpen} className="appbar__item color-white">Home</h2>
           </Link>
 
           <Link href="/about">
-            <h2 className="appbar__item color-white">About me</h2>
+            <h2 onClick={onOpen} className="appbar__item color-white">About me</h2>
           </Link>
 
-          <Link href="/about">
-            <h2 className="appbar__item color-white">Work</h2>
+          <Link href="/work">
+            <h2 onClick={onOpen} className="appbar__item color-white">Work</h2>
           </Link>
 
-          <Link href="/about">
-            <h2 className="appbar__item color-white">Projects</h2>
+          <Link href="/projects">
+            <h2 onClick={onOpen} className="appbar__item color-white">Projects</h2>
           </Link>
         </div>
         <div className="appbar__picture"></div>

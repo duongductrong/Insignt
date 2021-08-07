@@ -8,7 +8,7 @@
   border-color: inherit;
   box-sizing: border-box;
 
-  cursor: none!important;
+  // cursor: none!important;
 }
 
 html,
@@ -140,6 +140,10 @@ table {
 ol,
 ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 html {

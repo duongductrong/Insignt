@@ -3,6 +3,7 @@
 
 @import "./base/keyframes.scss";
 
+@import "./components/container";
 @import "./components/mouse";
 @import "./components/color";
 @import "./components/noise";
@@ -12,5 +13,6 @@
 @import "./components/text";
 
 @import "./pages/home";
+@import "./pages/about";
 
 @import "./vendors/locomotive-scroll";

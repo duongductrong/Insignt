@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
+import { useSelector } from "react-redux";
 
 export interface LoadingProps
   extends Omit<React.HTMLAttributes<HTMLElement>, "className"> {
@@ -7,18 +8,9 @@ export interface LoadingProps
 }
 
 const Loading: FC<LoadingProps> = ({ className, ...props }) => {
-  const [isLoading, setLoading] = useState<boolean | null>(null);
-
-  // useEffect(() => {
-  //   // Fake loading
-  //   setTimeout(() => {
-  //     setLoading(true);
-
-  //     setTimeout(() => {
-  //       setLoading(false);
-  //     }, 300);
-  //   }, 300);
-  // }, []);
+  const isLoading = useSelector(
+    (state: any) => state.loadingService.isLoadingPage
+  );
 
   return (
     <div
