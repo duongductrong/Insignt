@@ -1,0 +1,15 @@
+.project-screen {
+    text-align: center;
+    padding-bottom: 10rem;
+
+    &__title {
+    }
+
+    &__information {
+        margin-bottom: 5rem;
+    }
+
+    &__image {
+        filter: grayscale(100%);
+    }
+}

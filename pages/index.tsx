@@ -2,6 +2,7 @@ import classNames from "classnames";
 import _ from "lodash";
 import { useRouter } from "next/dist/client/router";
 import { FC, MouseEvent as MouseEventReact, useEffect } from "react";
+import { Timeline, Tween } from "react-gsap";
 import { useDispatch, useSelector } from "react-redux";
 import AppLayout from "../components/AppLayout/AppLayout";
 import Container from "../components/Container/Container";
@@ -79,17 +80,27 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
     >
       <Container tag="main">
         <section className="sp-space" data-scroll data-scroll-id="appInsignt">
-          <Text
-            tag="h1"
-            variant="big-text"
-            className="sp-space__title"
-            font="cormorant-upright"
+          <Timeline
+            delay={1}
+            target={
+              <>
+                <Text
+                  tag="h1"
+                  variant="big-text"
+                  className="sp-space__title"
+                  font="cormorant-upright"
+                >
+                  InSignt
+                </Text>
+                <Text tag="h6" variant="h6" className="sp-space__sub-title">
+                  Front-End - Back-End - @2021
+                </Text>
+              </>
+            }
           >
-            InSignt
-          </Text>
-          <Text tag="h6" variant="h6" className="sp-space__sub-title">
-            Front-End - Back-End - @2021
-          </Text>
+            <Tween from={{opacity: 0, y: "200px"}} to={{opacity: 1, y: "0"}} target={0} duration={0.8} clearProps="all" />
+            <Tween from={{opacity: 0, y: "100px"}} to={{opacity: 1, y: "0"}} target={1} duration={0.5} clearProps="all" />
+          </Timeline>
         </section>
 
         <section className="sp-work">

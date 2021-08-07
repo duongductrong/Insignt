@@ -1,0 +1,38 @@
+.sp-work {
+    padding: 50px 0;
+    text-align: center;
+    padding: 5rem 0;
+
+    &__title {
+    }
+
+    &__list {
+
+      &__item {
+        display: inline-block;
+        position: relative;
+        transition: all 500ms ease;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0;
+          background-color: $white;
+
+          mix-blend-mode: difference;
+          transition: all 600ms ease;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+
+          &::after {
+            height: 50%;
+          }
+        }
+      }
+    }
+  }

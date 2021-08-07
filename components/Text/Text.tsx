@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { Color } from "../../core/types/Color";
 import { FontFamily } from "../../core/types/Font";
 
-export type TextVariant = "big-text" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+export type TextVariant = "big-text" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
 export type TextTransform = "uppercase" | "lowercase" | "capitalize";
 export type FontWeight = "normal" | "bold" | "lighter";
 export interface TextProps
@@ -18,7 +18,7 @@ export interface TextProps
   href?: string;
 }
 
-const Text: FC<TextProps> = ({
+const Text: FC<TextProps> = React.forwardRef(({
   tag,
   children,
   className,
@@ -28,11 +28,12 @@ const Text: FC<TextProps> = ({
   fontWeight,
   textTransform,
   ...props
-}) => {
+}, ref) => {
   const TagElement: any = tag;
   return (
     <TagElement
       {...props}
+      ref={ref}
       className={classNames(
         `text-${variant}`,
         `color-${color}`,
@@ -45,7 +46,7 @@ const Text: FC<TextProps> = ({
       {children}
     </TagElement>
   );
-};
+});
 
 Text.defaultProps = {
   tag: "h1",

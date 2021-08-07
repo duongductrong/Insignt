@@ -54,10 +54,6 @@ const Appbar: FC<AppbarProps> = ({ className, ...props }) => {
             <h2 onClick={onOpen} className="appbar__item color-white">About me</h2>
           </Link>
 
-          <Link href="/work">
-            <h2 onClick={onOpen} className="appbar__item color-white">Work</h2>
-          </Link>
-
           <Link href="/projects">
             <h2 onClick={onOpen} className="appbar__item color-white">Projects</h2>
           </Link>
