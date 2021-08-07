@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
           {/* "Cormorant Upright" */}
         </Head>
 
-        <body>
+        <body className="dark">
           <Main></Main>
           <NextScript />
         </body>
