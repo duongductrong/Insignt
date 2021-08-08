@@ -25,6 +25,12 @@ const ProjectListScreen: FC<ProjectListScreenProps> = ({ ...props }) => {
       link: "/projects/codestus",
       date: "2021",
     },
+    {
+      key: 3,
+      name: "Rechic - Gambox",
+      link: "/projects/rechic",
+      date: "2021",
+    },
   ];
   const router = useRouter();
 

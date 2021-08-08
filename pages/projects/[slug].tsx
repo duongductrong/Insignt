@@ -8,6 +8,7 @@ import locomotiveScrollHelper from "../../core/helpers/LocomotiveScrollHelper";
 import casioWatchPng from "../../public/assets/statics/casio-anhkhue-com.png";
 import codestusPng from "../../public/assets/statics/codestus-com.png";
 import hatangdothiPng from "../../public/assets/statics/codestus-com.png";
+import rechicGamboxPng from "../../public/assets/statics/gambox-desktop.jpg";
 
 const projects = [
   {
@@ -26,6 +27,12 @@ const projects = [
     key: "codestus",
     image: codestusPng,
     title: "Codestus",
+    position: "Front-End & Back-End Development - 2021",
+  },
+  {
+    key: "rechic",
+    image: rechicGamboxPng,
+    title: "Rechic - Gambox",
     position: "Front-End & Back-End Development - 2021",
   },
 ];
