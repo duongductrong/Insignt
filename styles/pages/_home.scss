@@ -52,9 +52,9 @@
   }
 
   .sp-work {
-    padding: 50px 0;
+    padding: 10rem 0;
     text-align: center;
-    height: 100vh;
+    min-height: calc(100vh - 20rem);
 
     &__title {
     }

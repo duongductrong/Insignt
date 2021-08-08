@@ -44,9 +44,10 @@ const About: FC<AboutProps> = ({ ...props }) => {
               >
                 Hi, I'm Trong. <br /> <br />
                 The present, I'm a Frontend Developer at RIO Technology Company,
-                MasOffer is a one product of us company that I take on the task
-                of developing the user interface and feature. You can get more
-                information at fin.masoffer.com
+                MasOffer is a product of our company that I take on the task of
+                developing the user interface and feature. I have a year
+                of experience working with 2 languages JS / PHP and the ability
+                to access the technologies and frameworks of the 2 languages.
               </Text>
 
               <Text
@@ -95,7 +96,7 @@ const About: FC<AboutProps> = ({ ...props }) => {
       </section>
 
       <section data-scroll className="information">
-        <Tween delay={3} from={{opacity: 0}} to={{opacity: 1}}>
+        <Tween delay={3} from={{ opacity: 0 }} to={{ opacity: 1 }}>
           <Text
             tag="h2"
             variant="h1"
@@ -145,6 +146,78 @@ const About: FC<AboutProps> = ({ ...props }) => {
               from={{ opacity: 0, x: "100px" }}
               to={{ opacity: 1, x: "0" }}
               target={1}
+            />
+          </Timeline>
+        </Pathline>
+      </section>
+
+      <section data-scroll className="skills">
+        <Tween delay={3} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+          <Text
+            tag="h2"
+            variant="h1"
+            textTransform="capitalize"
+            font="cormorant-upright"
+          >
+            SKILLS
+          </Text>
+        </Tween>
+
+        <Pathline>
+          <Timeline
+            delay={3}
+            target={
+              <>
+                <PathlineItem milestones="">
+                  <Text tag="p" variant="h6" fontWeight="bold">
+                    FRONT-END
+                  </Text>
+                  <Text tag="p" variant="normal" fontWeight="normal">
+                    - VanillaJS / JQuery <br />
+                    - ReactJS <br />
+                    - Redux/ReduxToolkit <br />
+                    - VueJS <br />
+                    - VueX <br />
+                    - Typescript <br />
+                    - Knowledge about UX/UI <br />
+                  </Text>
+                </PathlineItem>
+
+                <PathlineItem milestones="">
+                  <Text tag="p" variant="h6" fontWeight="bold">
+                    BACK-END
+                  </Text>
+                  <Text tag="p" variant="normal" fontWeight="normal">
+                    - PHP / Laravel <br />
+                    - NODEJS / Expressjs <br />
+                  </Text>
+                </PathlineItem>
+
+                <PathlineItem milestones="">
+                  <Text tag="p" variant="h6" fontWeight="bold">
+                    SOFT-SKILL
+                  </Text>
+                  <Text tag="p" variant="normal" fontWeight="normal">
+                    - Teamwork
+                  </Text>
+                </PathlineItem>
+              </>
+            }
+          >
+            <Tween
+              from={{ opacity: 0, x: "100px" }}
+              to={{ opacity: 1, x: "0" }}
+              target={0}
+            />
+            <Tween
+              from={{ opacity: 0, x: "100px" }}
+              to={{ opacity: 1, x: "0" }}
+              target={1}
+            />
+            <Tween
+              from={{ opacity: 0, x: "100px" }}
+              to={{ opacity: 1, x: "0" }}
+              target={2}
             />
           </Timeline>
         </Pathline>

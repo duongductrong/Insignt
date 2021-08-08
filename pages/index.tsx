@@ -98,8 +98,20 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
               </>
             }
           >
-            <Tween from={{opacity: 0, y: "200px"}} to={{opacity: 1, y: "0"}} target={0} duration={0.8} clearProps="all" />
-            <Tween from={{opacity: 0, y: "100px"}} to={{opacity: 1, y: "0"}} target={1} duration={0.5} clearProps="all" />
+            <Tween
+              from={{ opacity: 0, y: "200px" }}
+              to={{ opacity: 1, y: "0" }}
+              target={0}
+              duration={0.8}
+              clearProps="all"
+            />
+            <Tween
+              from={{ opacity: 0, y: "100px" }}
+              to={{ opacity: 1, y: "0" }}
+              target={1}
+              duration={0.5}
+              clearProps="all"
+            />
           </Timeline>
         </section>
 
@@ -111,7 +123,7 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
             textTransform="uppercase"
             className="sp-work__title"
           >
-            Projects
+            Do you like this?
           </Text>
 
           <div className="sp-work__list">
@@ -122,62 +134,10 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
                 font="cormorant-upright"
                 textTransform="uppercase"
                 className="sp-work__list__item"
-                aria-link="/projects/casio"
+                aria-link="/about"
                 onClick={onNavigate}
               >
-                Casio Watch
-              </Text>
-              <Text
-                tag="h3"
-                variant="h6"
-                font="inter"
-                className="sp-work__list__item"
-              >
-                2020
-              </Text>
-            </div>
-
-            <div>
-              <Text
-                tag="h2"
-                variant="big-text"
-                font="cormorant-upright"
-                textTransform="uppercase"
-                className="sp-work__list__item"
-                aria-link="/projects/hatangdothi"
-                onClick={onNavigate}
-              >
-                HaTangDoThi
-              </Text>
-              <Text
-                tag="h3"
-                variant="h6"
-                font="inter"
-                className="sp-work__list__item"
-              >
-                2020
-              </Text>
-            </div>
-
-            <div>
-              <Text
-                tag="h2"
-                variant="big-text"
-                font="cormorant-upright"
-                textTransform="uppercase"
-                className="sp-work__list__item"
-                aria-link="/projects/codestus"
-                onClick={onNavigate}
-              >
-                Codestus
-              </Text>
-              <Text
-                tag="h3"
-                variant="h6"
-                font="inter"
-                className="sp-work__list__item"
-              >
-                2021
+                See about me
               </Text>
             </div>
           </div>

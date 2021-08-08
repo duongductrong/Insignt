@@ -1,5 +1,6 @@
 import { useRouter } from "next/dist/client/router";
 import React, { FC, MouseEvent, useEffect } from "react";
+import { Timeline, Tween } from "react-gsap";
 import Text from "../../components/Text/Text";
 import locomotiveScrollHelper from "../../core/helpers/LocomotiveScrollHelper";
 
@@ -35,7 +36,7 @@ const ProjectListScreen: FC<ProjectListScreenProps> = ({ ...props }) => {
   const router = useRouter();
 
   const onNavigate = (event: MouseEvent) => {
-    router.push((event.target as any).getAttribute("aria-link"))
+    router.push((event.target as any).getAttribute("aria-link"));
   };
 
   useEffect(() => {
@@ -60,29 +61,40 @@ const ProjectListScreen: FC<ProjectListScreenProps> = ({ ...props }) => {
       </Text>
 
       <div className="sp-work__list">
-        {projects.map((project) => (
-          <div key={project.key}>
-            <Text
-              tag="h2"
-              variant="big-text"
-              font="cormorant-upright"
-              textTransform="uppercase"
-              className="sp-work__list__item"
-              aria-link={project.link}
-              onClick={onNavigate}
-            >
-              {project.name}
-            </Text>
-            <Text
-              tag="h3"
-              variant="h6"
-              font="inter"
-              className="sp-work__list__item"
-            >
-              {project.date}
-            </Text>
-          </div>
-        ))}
+        <Timeline
+          delay={1}
+          target={
+            <>
+              {projects.map((project) => (
+                <div key={project.key}>
+                  <Text
+                    tag="h2"
+                    variant="big-text"
+                    font="cormorant-upright"
+                    textTransform="uppercase"
+                    className="sp-work__list__item"
+                    aria-link={project.link}
+                    onClick={onNavigate}
+                  >
+                    {project.name}
+                  </Text>
+                  <Text
+                    tag="h3"
+                    variant="h6"
+                    font="inter"
+                    className="sp-work__list__item"
+                  >
+                    {project.date}
+                  </Text>
+                </div>
+              ))}
+            </>
+          }
+        >
+          {projects.map((_, i) => (
+            <Tween key={i} from={{opacity: 0, x: "80px"}} to={{opacity: 1, x: "0"}} duration={0.5} target={i} />
+          ))}
+        </Timeline>
       </div>
     </section>
   );
