@@ -46,15 +46,15 @@ const Appbar: FC<AppbarProps> = ({ className, ...props }) => {
 
       <section className={classNames("appbar__content")}>
         <div className="appbar__items" ref={refListItems}>
-          <Link href="/">
+          <Link href="/" passHref>
             <h2 onClick={onOpen} className="appbar__item color-white">Home</h2>
           </Link>
 
-          <Link href="/about">
+          <Link href="/about" passHref>
             <h2 onClick={onOpen} className="appbar__item color-white">About me</h2>
           </Link>
 
-          <Link href="/projects">
+          <Link href="/projects" passHref>
             <h2 onClick={onOpen} className="appbar__item color-white">Projects</h2>
           </Link>
         </div>

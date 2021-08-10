@@ -3,7 +3,7 @@ import _ from "lodash";
 import { useRouter } from "next/dist/client/router";
 import { FC, MouseEvent as MouseEventReact, useEffect } from "react";
 import { Timeline, Tween } from "react-gsap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import AppLayout from "../components/AppLayout/AppLayout";
 import Container from "../components/Container/Container";
 import Text from "../components/Text/Text";
@@ -26,6 +26,7 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
 
   useEffect(() => {
     dispatch(loadingOn);
+    
     const movingObject = _.throttle((event: MouseEvent) => {
       const centerPosition = {
         x: window.innerWidth / 2,
@@ -45,7 +46,7 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
     return () => {
       window.removeEventListener("mousemove", movingObject);
     };
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     let scroll: any;

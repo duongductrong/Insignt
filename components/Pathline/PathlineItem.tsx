@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Text from "../Text/Text";
 
-export interface PathlineItemProps {
+export interface PathlineItemProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "className"> {
   milestones?: string;
   className?: string;
 }
@@ -23,5 +23,7 @@ const PathlineItem: FC<PathlineItemProps> = React.forwardRef(
     );
   }
 );
+
+PathlineItem.displayName = "PathlineItem";
 
 export default PathlineItem;

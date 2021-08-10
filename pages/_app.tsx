@@ -17,13 +17,15 @@ type Props = AppProps & {
 
 function MyApp({ Component, pageProps }: Props) {
   const router = useRouter();
-  const [isDarkTheme, setDarkTheme] = useState<any>(false);
+  const [isDarkTheme, setDarkTheme] = useState(false);
   const MyLayout = Component.Layout || AppLayout;
 
   // dark mode open or not
   useEffect(() => {
-    isDarkTheme && document.body.classList.add("dark");
-  }, []);
+    if(isDarkTheme) {
+      document.body.classList.add("dark");
+    }
+  }, [isDarkTheme]);
 
   useEffect(() => {
     const movingObject = _.throttle((event: MouseEvent) => {

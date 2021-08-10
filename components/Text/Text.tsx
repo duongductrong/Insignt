@@ -1,5 +1,5 @@
-import classNames from "classnames";
 import React, { FC } from "react";
+import classNames from "classnames";
 import { Color } from "../../core/types/Color";
 import { FontFamily } from "../../core/types/Font";
 
@@ -55,5 +55,7 @@ Text.defaultProps = {
   color: "dark",
   font: "inter",
 };
+
+Text.displayName = "Text";
 
 export default Text;

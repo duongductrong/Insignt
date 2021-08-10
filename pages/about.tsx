@@ -42,8 +42,8 @@ const About: FC<AboutProps> = ({ ...props }) => {
                 fontWeight="normal"
                 className="text-content"
               >
-                Hi, I'm Trong. <br /> <br />
-                The present, I'm a Frontend Developer at RIO Technology Company,
+                Hi, I&apos;m Trong. <br /> <br />
+                The present, I&apos;m a Frontend Developer at RIO Technology Company,
                 MasOffer is a product of our company that I take on the task of
                 developing the user interface and feature. I have a year
                 of experience working with 2 languages JS / PHP and the ability
@@ -120,7 +120,7 @@ const About: FC<AboutProps> = ({ ...props }) => {
                     Here, I am a Front-end developer. My main job is to develop,
                     upgrade and maintain the user interface. <br /> In addition,
                     also took on a number of roles developing server-side
-                    features and APIs for the company's products.
+                    features and APIs for the company&apos;s products.
                     <br/>
                     - <b>Position</b>: Frontend Developer 
                   </Text>
@@ -131,9 +131,9 @@ const About: FC<AboutProps> = ({ ...props }) => {
                     ANFLASH TECHNOLOGY
                   </Text>
                   <Text tag="p" variant="normal" fontWeight="normal">
-                    At the Anflash Technology, I'm a front-end and back-end
+                    At the Anflash Technology, I&apos;m a front-end and back-end
                     developer. <br /> I have responsibility development products
-                    for us customer's{" "}
+                    for us customer&apos;s{" "}
                     <br/>
                     - <b>Position</b>: Web Developer
                   </Text>
