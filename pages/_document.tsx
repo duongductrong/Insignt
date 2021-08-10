@@ -20,8 +20,6 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
 
-          <title>Duong Duc Trong - Portfolio Frontend Developer</title>
-
           {/* "Cormorant Upright" */}
         </Head>
 

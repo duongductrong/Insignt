@@ -8,7 +8,7 @@
   border-color: inherit;
   box-sizing: border-box;
 
-  // cursor: none!important;
+  cursor: none!important;
 }
 
 html,
@@ -25,23 +25,23 @@ h4,
 h5,
 h6,
 p,
-blockquote,
-pre,
+// blockquote,
+// pre,
 a,
 abbr,
 acronym,
 address,
-big,
-cite,
-code,
-del,
+// big,
+// cite,
+// code,
+// del,
 dfn,
 em,
 img,
 ins,
 kbd,
-q,
-s,
+// q,
+// s,
 samp,
 small,
 strike,
@@ -50,9 +50,9 @@ sub,
 sup,
 tt,
 var,
-b,
-u,
-i,
+// b,
+// u,
+// i,
 center,
 dl,
 dt,
@@ -156,8 +156,6 @@ body {
   font-size: 1rem;
   line-height: 1.5;
   min-height: 100vh;
-  background: $light;
-  color: $dark;
 }
 
 :root {

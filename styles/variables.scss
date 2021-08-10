@@ -7,30 +7,37 @@ $fontSize: 16px;
 $texts: (
   "big-text": (
     "size": 7.5rem,
+    "sm-size": 5rem,
     "weight": bold,
   ),
   "h1": (
     "size": 6rem,
+    "sm-size": 4rem,
     "weight": bold,
   ),
   "h2": (
     "size": 3.75rem,
+    "sm-size": 3rem,
     "weight": bold,
   ),
   "h3": (
     "size": 3rem,
+    "sm-size": 2.5rem,
     "weight": bold,
   ),
   "h4": (
     "size": 2.125rem,
+    "sm-size": 1.5rem,
     "weight": bold,
   ),
   "h5": (
     "size": 1.5rem,
+    "sm-size": 1.25rem,
     "weight": bold,
   ),
   "h6": (
     "size": 1.25rem,
+    "sm-size": 1.25rem,
     "weight": bold,
   ),
   "normal": (
@@ -42,7 +49,7 @@ $texts: (
 $colors: (
   "primary": (
     "light": $primary,
-    "dark": $light,
+    "dark": $primary,
   ),
   "white": (
     "light": $white,

@@ -7,14 +7,13 @@
   justify-content: flex-end;
 
   &__bars {
-    // cursor: pointer;
     z-index: 990;
     span {
       display: block;
       width: 30px;
       height: 3px;
       margin-bottom: 1rem;
-      background-color: $dark;
+      @extend .bg-dark;
       transition: all 600ms ease-out;
 
       &:nth-child(1) {
@@ -32,7 +31,7 @@
 
     &:hover {
       span {
-        background-color: $primary;
+        @extend .bg-primary;
         &:nth-child(1),
         &:nth-child(2) {
           transform: translateY(0px);
@@ -65,7 +64,7 @@
       left: 0;
       z-index: -1;
 
-      background-color: $dark;
+      @extend .bg-dark;
 
       transition: all 850ms ease;
     }
@@ -113,10 +112,10 @@
   &.appbar__open {
     .appbar__bars {
       z-index: 300;
-      mix-blend-mode: difference;
 
       span {
-        background-color: $white;
+        @extend .bg-white;
+
         &:nth-child(1) {
           transform: rotate(45deg) translateY(13.5px);
         }
@@ -155,22 +154,6 @@
         transform: translateY(0);
         transition-delay: 250ms;
       }
-    }
-  }
-}
-
-body[class*="dark"] {
-  .appbar {
-    &__bars {
-      span {
-        background-color: $light;
-      }
-    }
-  }
-
-  .appbar__content {
-    &::before {
-      background-color: $light;
     }
   }
 }

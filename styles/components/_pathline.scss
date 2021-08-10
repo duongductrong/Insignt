@@ -8,7 +8,7 @@
     top: 0;
     height: 0;
     width: 1px;
-    background-color: $white;
+    @extend .bg-dark;
   
     animation: completedPathLine 3s ease forwards;
     animation-delay: 3s;
@@ -24,16 +24,26 @@
       height: 12px;
       border-radius: 50%;
 
-      background-color: $white;
+      @extend .bg-dark;
 
       position: absolute;
       top: 0;
       left: -6px;
 
-      box-shadow: 0 0 0 2px currentColor, 0 0 0 4px $white;
+      box-shadow: 0 0 0 2px $light, 0 0 0 4px $dark;
     }
 
     .pathline__milestones {
+    }
+  }
+}
+
+body.dark {
+  .pathline {
+    &__item {
+      &::before {
+        box-shadow: 0 0 0 2px $dark, 0 0 0 4px $white;
+      }
     }
   }
 }

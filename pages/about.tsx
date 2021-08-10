@@ -121,6 +121,8 @@ const About: FC<AboutProps> = ({ ...props }) => {
                     upgrade and maintain the user interface. <br /> In addition,
                     also took on a number of roles developing server-side
                     features and APIs for the company's products.
+                    <br/>
+                    - <b>Position</b>: Frontend Developer 
                   </Text>
                 </PathlineItem>
 
@@ -132,6 +134,8 @@ const About: FC<AboutProps> = ({ ...props }) => {
                     At the Anflash Technology, I'm a front-end and back-end
                     developer. <br /> I have responsibility development products
                     for us customer's{" "}
+                    <br/>
+                    - <b>Position</b>: Web Developer
                   </Text>
                 </PathlineItem>
               </>
