@@ -1,18 +1,17 @@
-import { useRouter } from "next/dist/client/router";
-import React, { FC, useEffect } from "react";
-import Container from "../../components/Container/Container";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext
+} from "next";
 import Image from "next/image";
+import React, { FC, useEffect } from "react";
+import { Timeline, Tween } from "react-gsap";
+import Container from "../../components/Container/Container";
 import Text from "../../components/Text/Text";
 import locomotiveScrollHelper from "../../core/helpers/LocomotiveScrollHelper";
-
-import { Timeline, Tween } from "react-gsap";
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import { ProjectType } from "../api/projects";
-
 import "../../public/assets/statics/casio-anhkhue-com.png";
 import "../../public/assets/statics/codestus-com.png";
-import "../../public/assets/statics/htdt.jpg";
 import "../../public/assets/statics/gambox-desktop.jpg";
+import "../../public/assets/statics/htdt.jpg";
 
 export interface ProjectScreenProps {
   project: {
@@ -96,36 +95,52 @@ const ProjectScreen: FC<ProjectScreenProps> = ({ project, ...props }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (
-  ctx: GetStaticPropsContext
-) => {
+// export const getStaticProps: GetStaticProps = async (
+//   ctx: GetStaticPropsContext
+// ) => {
 
+//   const slug = (ctx.params as { slug?: string }).slug;
+//   const project  = await (await fetch(`${process.env.HOSTNAME}/api/projects?slug=${slug}`)).json();
+
+//   return {
+//     props: {
+//       project: project.data,
+//     },
+//     notFound: !project
+//   };
+// };
+
+// export const getStaticPaths: GetStaticPaths = async (ctx) => {
+//   const res = await fetch(`${process.env.HOSTNAME}/api/projects`, {
+//     method: "GET"
+//   });
+
+//   const projects = (await res.json()).data;
+
+//   const paths = projects.map((proj : ProjectType) => ({
+//     params: {
+//       slug: proj.key,
+//     },
+//   }));
+//   return {
+//     paths: paths,
+//     fallback: "blocking",
+//   };
+// };
+
+export const getServerSideProps: GetServerSideProps = async (
+  ctx: GetServerSidePropsContext
+) => {
   const slug = (ctx.params as { slug?: string }).slug;
-  const project  = await (await fetch(`${process.env.HOSTNAME}/api/projects?slug=${slug}`)).json();
+  const project = await (
+    await fetch(`${process.env.HOSTNAME}/api/projects?slug=${slug}`)
+  ).json();
 
   return {
     props: {
       project: project.data,
     },
-    notFound: !project
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async (ctx) => {
-  const res = await fetch(`${process.env.HOSTNAME}/api/projects`, {
-    method: "GET"
-  });
-
-  const projects = (await res.json()).data;
-
-  const paths = projects.map((proj : ProjectType) => ({
-    params: {
-      slug: proj.key,
-    },
-  }));
-  return {
-    paths: paths,
-    fallback: "blocking",
+    notFound: !project,
   };
 };
 
