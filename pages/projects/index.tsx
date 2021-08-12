@@ -1,38 +1,16 @@
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { useRouter } from "next/dist/client/router";
 import React, { FC, MouseEvent, useEffect } from "react";
 import { Timeline, Tween } from "react-gsap";
 import Text from "../../components/Text/Text";
 import locomotiveScrollHelper from "../../core/helpers/LocomotiveScrollHelper";
+import { projects, ProjectType } from "../api/data";
 
-interface ProjectListScreenProps {}
+interface ProjectListScreenProps {
+  projects: ProjectType[]
+}
 
-const ProjectListScreen: FC<ProjectListScreenProps> = ({ ...props }) => {
-  const projects = [
-    {
-      key: 0,
-      name: "Casio Watch",
-      link: "/projects/casio",
-      date: "2020",
-    },
-    {
-      key: 1,
-      name: "HaTangDoThi",
-      link: "/projects/hatangdothi",
-      date: "2020",
-    },
-    {
-      key: 2,
-      name: "Codestus",
-      link: "/projects/codestus",
-      date: "2021",
-    },
-    {
-      key: 3,
-      name: "Rechic - Gambox",
-      link: "/projects/rechic",
-      date: "2021",
-    },
-  ];
+const ProjectListScreen: FC<ProjectListScreenProps> = ({ projects, ...props }) => {
   const router = useRouter();
 
   const onNavigate = (event: MouseEvent) => {
@@ -73,10 +51,10 @@ const ProjectListScreen: FC<ProjectListScreenProps> = ({ ...props }) => {
                     font="cormorant-upright"
                     textTransform="uppercase"
                     className="sp-work__list__item"
-                    aria-link={project.link}
+                    aria-link={`/projects/${project.key}`}
                     onClick={onNavigate}
                   >
-                    {project.name}
+                    {project.title}
                   </Text>
                   <Text
                     tag="h3"
@@ -99,5 +77,14 @@ const ProjectListScreen: FC<ProjectListScreenProps> = ({ ...props }) => {
     </section>
   );
 };
+
+export const getStaticProps : GetStaticProps = async (ctx : GetStaticPropsContext) => {
+  return {
+    props: {
+      projects: projects
+    },
+    notFound: false
+  }
+}
 
 export default ProjectListScreen;
