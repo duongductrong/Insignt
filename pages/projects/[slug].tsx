@@ -9,6 +9,11 @@ import Container from "../../components/Container/Container";
 import Text from "../../components/Text/Text";
 import locomotiveScrollHelper from "../../core/helpers/LocomotiveScrollHelper";
 import { projects } from "../api/data";
+
+import  "../../public/assets/statics/casio-anhkhue-com.png";
+import  "../../public/assets/statics/codestus-com.png";
+import  "../../public/assets/statics/gambox-desktop.jpg";
+import  "../../public/assets/statics/htdt.jpg";
 export interface ProjectScreenProps {
   project: {
     key: string;
