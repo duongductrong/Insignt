@@ -1,7 +1,4 @@
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext
-} from "next";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import Image from "next/image";
 import React, { FC, useEffect } from "react";
 import { Timeline, Tween } from "react-gsap";
@@ -10,10 +7,12 @@ import Text from "../../components/Text/Text";
 import locomotiveScrollHelper from "../../core/helpers/LocomotiveScrollHelper";
 import { projects } from "../api/data";
 
-import  "../../public/assets/statics/casio-anhkhue-com.png";
-import  "../../public/assets/statics/codestus-com.png";
-import  "../../public/assets/statics/gambox-desktop.jpg";
-import  "../../public/assets/statics/htdt.jpg";
+import "../../public/assets/statics/casio-anhkhue-com.png";
+import "../../public/assets/statics/codestus-com.png";
+import "../../public/assets/statics/gambox-desktop.jpg";
+import "../../public/assets/statics/htdt.jpg";
+import classNames from "classnames";
+import mouseHelper from "../../core/helpers/MouseHelper";
 export interface ProjectScreenProps {
   project: {
     key: string;
@@ -64,7 +63,10 @@ const ProjectScreen: FC<ProjectScreenProps> = ({ project, ...props }) => {
             <div>
               {project?.image && (
                 <Image
-                  className="project-screen__image"
+                  className={classNames(
+                    "project-screen__image",
+                    mouseHelper.addTargetTrigger(true)
+                  )}
                   src={project?.image ?? ""}
                   alt="Image"
                 />

@@ -8,6 +8,7 @@ import AppLayout from "../components/AppLayout/AppLayout";
 import Container from "../components/Container/Container";
 import Text from "../components/Text/Text";
 import locomotiveScrollHelper from "../core/helpers/LocomotiveScrollHelper";
+import mouseHelper from "../core/helpers/MouseHelper";
 import { loadingOn } from "../core/store/reducers/loadingReducer";
 import { PageLayoutI } from "../core/types/PageLayout";
 export interface HomeProps {
@@ -26,7 +27,7 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
 
   useEffect(() => {
     dispatch(loadingOn);
-    
+
     const movingObject = _.throttle((event: MouseEvent) => {
       const centerPosition = {
         x: window.innerWidth / 2,
@@ -88,12 +89,18 @@ const Home: FC<HomeProps> = ({ className, ...props }) => {
                 <Text
                   tag="h1"
                   variant="big-text"
-                  className="sp-space__title"
+                  className={classNames("sp-space__title")}
                   font="cormorant-upright"
+                  mouseTarget={true}
                 >
                   InSignt
                 </Text>
-                <Text tag="h6" variant="h6" className="sp-space__sub-title">
+                <Text
+                  tag="h6"
+                  variant="h6"
+                  className="sp-space__sub-title"
+                  mouseTarget={true}
+                >
                   Front-End - Back-End - @2021
                 </Text>
               </>

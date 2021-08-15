@@ -66,6 +66,7 @@ const About: FC<AboutProps> = ({ ...props }) => {
                     variant="h6"
                     fontWeight="normal"
                     textTransform="lowercase"
+                    mouseTarget={true}
                   >
                     duongductrong06@gmail.com
                   </Text>

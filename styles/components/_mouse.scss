@@ -32,6 +32,16 @@
     pointer-events: none;
 
     mix-blend-mode: difference;
-    transition: all 50ms linear;
+    transition: top 50ms linear, left 50ms linear, transform 300ms ease;
+  }
+
+  &--target {
+    &::before {
+      transform: scale(0.1);
+    }
+
+    &::after {
+      transform: scale(10);
+    }
   }
 }

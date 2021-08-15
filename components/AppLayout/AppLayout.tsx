@@ -12,7 +12,7 @@ const AppLayout: FC<Props> = ({ children, ...props }) => {
         <meta name="viewport" content="width=device-width, initial-scale=0.2" />
         <title>Duong Duc Trong - Frontend Developer Portfolio</title>
       </Head>
-      <Appbar />
+      <Appbar mouseTarget={true} />
       <main>{children}</main>
     </div>
   );

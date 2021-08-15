@@ -46,6 +46,7 @@ const ProjectListScreen: FC<ProjectListScreenProps> = ({ projects, ...props }) =
               {projects.map((project) => (
                 <div key={project.key}>
                   <Text
+                    mouseTarget={true}
                     tag="h2"
                     variant="big-text"
                     font="cormorant-upright"
@@ -57,6 +58,7 @@ const ProjectListScreen: FC<ProjectListScreenProps> = ({ projects, ...props }) =
                     {project.title}
                   </Text>
                   <Text
+                    mouseTarget={true}
                     tag="h3"
                     variant="h6"
                     font="inter"

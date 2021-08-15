@@ -2,8 +2,17 @@ import React, { FC } from "react";
 import classNames from "classnames";
 import { Color } from "../../core/types/Color";
 import { FontFamily } from "../../core/types/Font";
+import mouseHelper from "../../core/helpers/MouseHelper";
 
-export type TextVariant = "big-text" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+export type TextVariant =
+  | "big-text"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "normal";
 export type TextTransform = "uppercase" | "lowercase" | "capitalize";
 export type FontWeight = "normal" | "bold" | "lighter";
 export interface TextProps
@@ -16,37 +25,45 @@ export interface TextProps
   font?: FontFamily;
   fontWeight?: FontWeight;
   href?: string;
+  mouseTarget?: boolean;
 }
 
-const Text: FC<TextProps> = React.forwardRef(({
-  tag,
-  children,
-  className,
-  color,
-  variant,
-  font,
-  fontWeight,
-  textTransform,
-  ...props
-}, ref) => {
-  const TagElement: any = tag;
-  return (
-    <TagElement
-      {...props}
-      ref={ref}
-      className={classNames(
-        `text-${variant}`,
-        `color-${color}`,
-        textTransform ? `text-${textTransform}` : "",
-        fontWeight ? `weight-${fontWeight}` : "",
-        font,
-        className
-      )}
-    >
-      {children}
-    </TagElement>
-  );
-});
+const Text: FC<TextProps> = React.forwardRef(
+  (
+    {
+      tag,
+      children,
+      className,
+      color,
+      variant,
+      font,
+      fontWeight,
+      textTransform,
+      mouseTarget,
+      ...props
+    },
+    ref
+  ) => {
+    const TagElement: any = tag;
+    return (
+      <TagElement
+        {...props}
+        ref={ref}
+        className={classNames(
+          `text-${variant}`,
+          `color-${color}`,
+          textTransform ? `text-${textTransform}` : "",
+          fontWeight ? `weight-${fontWeight}` : "",
+          mouseHelper.addTargetTrigger(mouseTarget),
+          font,
+          className
+        )}
+      >
+        {children}
+      </TagElement>
+    );
+  }
+);
 
 Text.defaultProps = {
   tag: "h1",
