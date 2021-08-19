@@ -31,17 +31,23 @@ function MyApp({ Component, pageProps }: Props) {
 
   useEffect(() => {
     const movingFunc = _.throttle((event: MouseEvent) => {
-      const elementTarget = (event.target as HTMLElement);
+      const elementTarget = event.target as HTMLElement;
       const object = {
         x: event.x,
         y: event.y,
       };
 
-      const mouse = (mouseRef.current as HTMLElement | null);
+      const mouse = mouseRef.current as HTMLElement | null;
       mouseHelper.shouldTarget(mouse, elementTarget);
 
-      document.body.style.setProperty("--app-mouse-moving-x", `${object.x - 60 / 2}px`);
-      document.body.style.setProperty("--app-mouse-moving-y", `${object.y - 60 / 2}px`);
+      document.body.style.setProperty(
+        "--app-mouse-moving-x",
+        `${object.x - 60 / 2}px`
+      );
+      document.body.style.setProperty(
+        "--app-mouse-moving-y",
+        `${object.y - 60 / 2}px`
+      );
     }, 50);
 
     window.addEventListener("mousemove", movingFunc);
