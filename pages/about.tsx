@@ -47,7 +47,7 @@ const About: FC<AboutProps> = ({ ...props }) => {
                   The present, I&apos;m a Frontend Developer at RIO Technology
                   Company, MasOffer is a product of our company that I take on
                   the task of developing the user interface and feature. I have
-                  a year of experience working with 2 languages JS / PHP and the
+                  a year of experience working with 2 languages JS, PHP and the
                   ability to access the technologies and frameworks of the 2
                   languages.
                 </Text>
@@ -134,8 +134,8 @@ const About: FC<AboutProps> = ({ ...props }) => {
                       ANFLASH TECHNOLOGY
                     </Text>
                     <Text tag="p" variant="normal" fontWeight="normal">
-                      At the Anflash Technology, I&apos;m a front-end and
-                      back-end developer. <br /> I have responsibility
+                      At the Anflash Technology, I&apos;m a Front-end and
+                      Back-end developer. <br /> I have responsibility
                       development products for us customer&apos;s <br />-{" "}
                       <b>Position</b>: Web Developer
                     </Text>
@@ -179,13 +179,9 @@ const About: FC<AboutProps> = ({ ...props }) => {
                       FRONT-END
                     </Text>
                     <Text tag="p" variant="normal" fontWeight="normal">
-                      - VanillaJS / JQuery <br />
                       - ReactJS <br />
-                      - Redux/ReduxToolkit <br />
                       - VueJS <br />
-                      - VueX <br />
                       - Typescript <br />
-                      - Knowledge about UX/UI <br />
                     </Text>
                   </PathlineItem>
 
@@ -194,17 +190,7 @@ const About: FC<AboutProps> = ({ ...props }) => {
                       BACK-END
                     </Text>
                     <Text tag="p" variant="normal" fontWeight="normal">
-                      - PHP / Laravel <br />
-                      - NODEJS / Expressjs <br />
-                    </Text>
-                  </PathlineItem>
-
-                  <PathlineItem milestones="">
-                    <Text tag="p" variant="h6" fontWeight="bold">
-                      SOFT-SKILL
-                    </Text>
-                    <Text tag="p" variant="normal" fontWeight="normal">
-                      - Teamwork
+                      - Laravel <br />
                     </Text>
                   </PathlineItem>
                 </>

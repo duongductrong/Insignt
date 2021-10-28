@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 export interface LoadingProps
